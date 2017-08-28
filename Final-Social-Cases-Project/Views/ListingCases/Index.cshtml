@@ -1,0 +1,93 @@
+﻿@model Final_Social_Cases_Project.Models.ListingCases
+@using Final_Social_Cases_Project.Models;
+
+@{
+    ViewBag.Title = "Listing Cases";
+}
+
+<h2>Listing Cases</h2>
+
+CATEGORIES
+@if (Model.categories.Count == 0) {
+    <p>nula</p>
+}
+<ul>
+    @foreach (Category r in @Model.categories) {
+        <li>
+            @Html.ActionLink(r.CategoryName, "Listing", new { categoryID = r.CategoryID })
+        </li>
+    }
+</ul>
+
+@if (Model.orphans.Count > 0) {
+
+    <div style="font-family:Arial">
+        <h2>Orphan List</h2>
+        <p>
+            @Html.ActionLink("Create New", "Create", "Orphan", new { categoryID = 2 }, null)
+        </p>
+        <ul>
+            @foreach (Orphan r in @Model.orphans) {
+                <li>
+                    <p>Name: @r.Name</p>
+                    <p>Loc: @r.Location</p>
+                    <p>Surname: @r.Surname</p>
+                    <p>Id: @r.ID</p>
+                    @Html.ActionLink("Edit", "Edit", "Orphan", new { orphanID = @r.ID }, null)
+                    @using (Html.BeginForm("Delete", "Orphan", new { id = @r.ID })) {
+                        <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete orphan with ID @r.ID')" />
+                    }
+                </li>
+            }
+        </ul>
+    </div>
+}
+
+@if (Model.refugees.Count > 0) {
+
+    <div style="font-family:Arial">
+        <h2>Refugee List</h2>
+        <p>
+            @Html.ActionLink("Create New", "Create", "Refugee", new { categoryID = 3 }, null)
+        </p>
+
+        <ul>
+            @foreach (Refugee r in @Model.refugees) {
+                <li>
+                    <p>Name: @r.Name</p>
+                    <p>Loc: @r.Location</p>
+                    <p>Surname: @r.Surname</p>
+                    <p>Id: @r.ID</p>
+                    @Html.ActionLink("Edit", "Edit", "Refugee", new { refugeeID = @r.ID }, null)
+                    @using (Html.BeginForm("Delete", "Refugee", new { id = @r.ID })) {
+                        <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete refugee with ID @r.ID')" />
+                    }
+                </li>
+            }
+        </ul>
+    </div>
+}
+
+@if (Model.families.Count > 0) {
+
+    <div style="font-family:Arial">
+        <h2>Family List</h2>
+        <p>
+            @Html.ActionLink("Create New", "Create", "Family", new { categoryID = 1 }, null)
+        </p>
+        <ul>
+            @foreach (Family r in @Model.families) {
+                <li>
+                    <p>Loc: @r.Location</p>
+                    <p>Surname: @r.Surname</p>
+                    <p>Id: @r.ID</p>
+                    @Html.ActionLink("Edit", "Edit", "Family", new { familyID = @r.ID }, null)
+                    @using (Html.BeginForm("Delete", "Family", new { id = @r.ID })) {
+                        <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete family with ID @r.ID')" />
+                    }
+
+                </li>
+            }
+        </ul>
+    </div>
+}
