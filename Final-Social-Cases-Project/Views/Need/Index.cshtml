@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Final_Social_Cases_Project.Models.Need>
+@using Final_Social_Cases_Project.Models;
+
+@{
+    ViewBag.Title = "Listing needs";
+}
+
+<h2>Listing needs</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", "Need")
+</p>
+<ul>
+    @foreach (Need need in @Model) {
+        <li>
+            <p>Id: @need.NeedID</p>
+            <p>Name: @need.NeedName</p>
+
+            @Html.ActionLink("Edit", "Edit", "Need", new { needID = @need.NeedID }, null)
+            @using (Html.BeginForm("Delete", "Need", new { id = @need.NeedID })) {
+                <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete orphan with ID @need.NeedID')" />
+            }
+        </li>
+    }
+</ul>

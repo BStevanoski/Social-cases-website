@@ -151,6 +151,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\FamilyController.cs" />
     <Compile Include="Controllers\ListingCasesController.cs" />
+    <Compile Include="Controllers\NeedController.cs" />
     <Compile Include="Controllers\OrphanController.cs" />
     <Compile Include="Controllers\RefugeeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -159,11 +160,13 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Contexts\CategoryContext.cs" />
     <Compile Include="Models\Contexts\FamilyContext.cs" />
+    <Compile Include="Models\Contexts\NeedContext.cs" />
     <Compile Include="Models\Contexts\OrphanContext.cs" />
     <Compile Include="Models\Contexts\RefugeeContext.cs" />
     <Compile Include="Models\Family.cs" />
     <Compile Include="Models\Gender.cs" />
     <Compile Include="Models\ListingCases.cs" />
+    <Compile Include="Models\Need.cs" />
     <Compile Include="Models\Orphan.cs" />
     <Compile Include="Models\Refugee.cs" />
     <Compile Include="Models\SocialCase.cs" />
@@ -184,6 +187,9 @@
     <Content Include="Views\Orphan\Edit.cshtml" />
     <Content Include="Views\Refugee\Edit.cshtml" />
     <Content Include="Views\Family\Edit.cshtml" />
+    <Content Include="Views\Need\Create.cshtml" />
+    <Content Include="Views\Need\Index.cshtml" />
+    <Content Include="Views\Need\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
