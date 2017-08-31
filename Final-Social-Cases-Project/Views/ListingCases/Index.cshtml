@@ -8,9 +8,6 @@
 <h2>Listing Cases</h2>
 
 CATEGORIES
-@if (Model.categories.Count == 0) {
-    <p>nula</p>
-}
 <ul>
     @foreach (Category r in @Model.categories) {
         <li>
